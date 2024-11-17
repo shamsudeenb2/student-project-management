@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+/* body {
+  font-family: "Nunito", sans-serif;
+  background: rgb(40, 40, 40);
+} */
+
+.container{
+    display: flex;
+    background: rgb(40, 40, 40);
+    height: 100vh;
+}
+
+.chatsContentList{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.chatContent{
+ display:flex;
+ flex-direction: row;
+ justify-content: space-between;
+ gap: 4;
+ align-items: start;
+}
+
+.chatList{
+    flex-grow: 0;
+    height: 85vh;
+    gap: 3;
+}
+
+/* All users */
+.all{
+  display: flex;
+  margin: 1rem 1rem 1rem 6rem;
+  height: 34px;
+}
+
+.single{
+  background: rgb(0, 213, 255);
+  color: white;
+  cursor: pointer;
+  padding: 5px 25px;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  position: relative;
+  width: 9rem;
+  align-content: center;
+}
+
+/* User Card */
+.user_card {
+  color: white;
+  position: relative;
+  border-bottom: 1px solid rgb(100, 100, 100);
+  width: 380px;
+}
+
+.user_card_list{
+  display: flex;
+  gap: 3;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 2px;
+  position: relative;
+  border-bottom: 1px solid rgb(100, 100, 100);
+  width: 380px;  
+}
+.user_list{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.user_avarter_name{
+  margin-right: 1px;
+  display: flex;
+}
+
+.avartar{
+  margin: 1px 9px;
+}
+
+.user_card .text_content {
+  width: 170px;
+}
+
+.user_card .name {
+  font-weight: 700;
+}
+
+.user_card .text,
+.user_card .date {
+  font-size: 14px;
+  color: rgb(180, 180, 180);
+}
+
+.notfic{
+  display:flex;
+  flex-direction:column;
+  align-items:end 
+}
+
+
+.user_online {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: rgb(0, 219, 0);
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  z-index: 2;
+}
+
+/* Chat Box */
+.chat_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* max-height: calc(100vh - 17rem); */
+  background: rgb(25, 25, 25);
+  border-radius: 10px;
+  margin: 0 20px;
+  width: 90%;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.messages_box {
+  height: 85vh;
+  width: 100%;
+  
+}
+
+/* Chat Header */
+.chat_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgb(30, 30, 30);
+}
+
+/* Messages */
+.messages {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 17rem);
+  overflow-y: auto;
+  padding: 0 2rem;
+  gap: 7;
+}
+
+.message {
+  background: #282828;
+  padding: 0.75rem;
+  border-radius: 5px;
+  max-width: 50%;
+}
+.senderMessage{
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border-radius: 5px;
+  max-width: 50%;
+  background: #00bd9b;
+  align-self: flex-end;
+  margin-top: 10px;
+  flex-grow: 0;
+
+}
+.ReceivedMessage{
+  display: flex;
+  flex-direction: column;
+  background: #282828;
+  padding: 0.75rem;
+  border-radius: 5px;
+  max-width: 50%;
+  align-self: flex-start;
+  flex-grow: 0;
+  margin-top: 10px;
+}
+
+.message.self {
+  background: #00bd9b;
+}
+
+.message_footer {
+  padding-top: 7px;
+  font-size: 12px;
+  align-self: flex-end;
+  font-weight: 400;
+}
+
+/* Chat Input  */
+.chat_input {
+    display: flex;
+    width: 100%;
+    background: rgb(30, 30, 30);
+    padding: 1rem;
+    flex-direction: row;
+    flex-grow: 0;
+    gap: 3;
+    margin-top: 10px;
+}
+.send_btn {
+  border: none;
+  background: rgba(72, 112, 223, 1);
+  color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.send_btn svg{
+  width: 30px;
+  height: 30px;
+}
+
+/* Notification */
+.notifications {
+  position: relative;
+}
+
+.notifications_icon {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.notifications_box {
+  max-height: 50vh;
+  width: 300px;
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background: #181d31;
+  color: white;
+  z-index: 5;
+}
+
+.notifications_header {
+  padding: 1rem;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.notifications_box h3 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.mark_as_read {
+  cursor: pointer;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.notification {
+  font-size: 14px;
+  margin: 1rem 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.notification.not_read {
+  background: #263159;
+}
+
+.notification_time {
+  margin-top: 0.2rem;
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.notification_count {
+  display: flex;
+  background: #00bd9b;
+  height: 25px;
+  width: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+}
+
+.this_user_notifications {
+  display: flex;
+  background: #00bd9b;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,95 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './ui/home.module.css'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <Head>
+        <title>Air Force Institute of Technology</title>
+        <meta name="description" content="AFIT Motto." />
+      </Head>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <main className={styles.main}>
+        {/* Hero Section */}
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <h1>Air Force Institute of Technology</h1>
+            
+            
+          </div>
+          {/* <div className={styles.heroImage}>
+            <Image src="/images/hero-image.jpg" alt="Postal Service" width={500} height={500} />
+          </div> */}
+        </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {/* Features Section */}
+        <section className={styles.features}>
+          {/* <h2>Why Choose Us?</h2>
+          <div className={styles.featureList}>
+            <div className={styles.feature}> */}
+              <Image src="/afitbuilding.jpg" alt="AFIT" width={800} height={400} />
+              {/* <h3>Fast Delivery</h3>
+              <p>We ensure your packages are delivered quickly and securely.</p> */}
+            {/* </div>
+            <div className={styles.feature}> */}
+              {/* <Image src="/afitConvocation.jpg" alt="Real-time Tracking" width={500} height={500} /> */}
+              {/* <h3>Real-time Tracking</h3>
+              <p>Track your parcels in real-time with our state-of-the-art system.</p> */}
+            {/* </div> */}
+            {/* <div className={styles.feature}>
+              <Image src="/icons/security.svg" alt="Secure Handling" width={64} height={64} />
+              <h3>Secure Handling</h3>
+              <p>Your packages are handled with utmost care and security.</p>
+            </div> */}
+          {/* </div> */}
+        </section>
+        {/* Call to Action Section */}
+        {/* <section className={styles.callToAction}>
+          <h2>Ready to Send Your Parcel?</h2>
+          <p>Sign up now and start sending with ease!</p>
+          <Link href="/signup" className={styles.cta}>
+            Get Started
+          </Link>
+        </section> */}
+      </main>
+    </>
   );
 }

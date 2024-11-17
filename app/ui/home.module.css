@@ -1,0 +1,116 @@
+/* styles/Home.module.css */
+
+.main {
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+  }
+  
+  .heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .heroContent h1 {
+    font-size: 3rem;
+    color: #5337ef;
+  }
+  
+  .heroContent p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #5337ef;;
+  }
+  
+  .cta {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    /* background-color: #0070f3; */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  /* .cta:hover {
+    background-color: #005bb5;
+  } */
+  
+  /* .heroImage {
+    max-width: 500px;
+  } */
+  
+  .features {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #182237;
+  }
+  
+  .features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .featureList {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .feature {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  .callToAction {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #0070f3;
+    color: white;
+  }
+  
+  .callToAction h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .callToAction p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .callToAction .cta {
+    background-color: white;
+    color: #0070f3;
+  }
+  
+  .callToAction .cta:hover {
+    background-color: #005bb5;
+    color: white;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #2e374a;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .input {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+  }

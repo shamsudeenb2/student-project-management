@@ -1,0 +1,43 @@
+.container {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 550px;
+  }
+  
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 70px 5px;
+  }
+  
+  .form input,
+  .form textarea,
+  .form select {
+    padding: 10px;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 2px solid #829cda;
+    border-radius: 5px;
+  }
+  
+  .form input, .form select {
+    width: 20%;
+    margin-right: 10px;
+  }
+  
+  .form textarea{
+    width: 20%;
+  }
+  
+  .form button{
+    width: 10%;
+    /* padding: 12px; */
+    background-color: teal;
+    color: var(--bgSoft);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

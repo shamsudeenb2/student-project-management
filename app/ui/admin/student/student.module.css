@@ -1,0 +1,81 @@
+.container{
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 500px;
+  }
+  
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .addButton{
+    padding: 10px;
+    background-color: #242425;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .table{
+    width: 100%;
+  }
+  
+  .table td{
+    padding: 10px;
+  }
+  
+  .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .userImage{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .buttons{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .view{
+    background-color: teal;
+  }
+  
+  .delete{
+    background-color: crimson;
+  }
+
+  .despatchButton{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .despatchButton form{
+    margin-left: 20px;
+  }
+
+  .butt{
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: #171717;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
