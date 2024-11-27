@@ -29,7 +29,7 @@ export default function Home() {
           {/* <h2>Why Choose Us?</h2>
           <div className={styles.featureList}>
             <div className={styles.feature}> */}
-              <Image src="/afitbuilding.jpg" alt="AFIT" width={800} height={400} />
+              <Image src="/afitbuilding.jpg" alt="AFIT" width={800} height={350} />
               {/* <h3>Fast Delivery</h3>
               <p>We ensure your packages are delivered quickly and securely.</p> */}
             {/* </div>

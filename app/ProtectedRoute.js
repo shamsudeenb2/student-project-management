@@ -1,46 +1,46 @@
 
-// import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 // import { getServerSession } from "next-auth/next";
-// import {authOptions} from './api/auth/[...nextauth]'
+import {authOptions} from './api/auth/[...nextauth]/route'
 
-// const roleItems = [
-//       {
-//         role: "admin",
-//         path: "/admin",
-//       },
-//       {
-//         role: "student",
-//         path: "/student",
-//       },
-//       {
-//         role: "staff",
-//         path: "/staff",
-//       }
-// ]
+const roleItems = [
+      {
+        role: "admin",
+        path: "/admin",
+      },
+      {
+        role: "student",
+        path: "/student",
+      },
+      {
+        role: "staff",
+        path: "/staff",
+      }
+]
 
 
-// const ProtectedRoute = async({ children, allowedRoles,  }) => {
+const ProtectedRoute = async({ children, allowedRoles,  }) => {
   
-//   const {data, status} = await getServerSession(authOptions)
+  const session = await getServerSession()
 
-//     console.log("Protected Route", !allowedRoles.includes(data))
-//   if (status === 'loading') return <p>Loading...</p>;
+    console.log("Protected Route", session)
+  
 
-//   if (!data.user) {
-//     redirect('/')// Redirect to the sign-in page
-//     return null;
-//   }
+  if (!session?.user) {
+    redirect('/')// Redirect to the sign-in page
+    return null;
+  }
 
-//   if (!allowedRoles.includes(session.user.role)) {
-//     roleItems.map((item) =>{
-//       if(item['role']===user.role){
-//         redirect(item['path'])
-//       }
-//     })
-//     redirect('/login')
-//     return null;
-//   }
-//   return <>{children}</>;
-// };
+  if (!allowedRoles.includes(session.user.role)) {
+    roleItems.map((item) =>{
+      if(item['role']===user.role){
+        redirect(item['path'])
+      }
+    })
+    redirect('/login')
+    return null;
+  }
+  return <>{children}</>;
+};
 
-// export default ProtectedRoute;
+export default ProtectedRoute;

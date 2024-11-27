@@ -7,8 +7,9 @@
 
 .container{
     display: flex;
-    background: rgb(40, 40, 40);
+    background: var(--bg);
     height: 100vh;
+    color: black;
 }
 
 .chatsContentList{
@@ -39,8 +40,8 @@
 }
 
 .single{
-  background: rgb(0, 213, 255);
-  color: white;
+  background: var(--bg);
+  color: var(--text);
   cursor: pointer;
   padding: 5px 25px;
   border-radius: 10px;
@@ -52,7 +53,7 @@
 
 /* User Card */
 .user_card {
-  color: white;
+  color: var(--text);
   position: relative;
   border-bottom: 1px solid rgb(100, 100, 100);
   width: 380px;
@@ -95,7 +96,7 @@
 .user_card .text,
 .user_card .date {
   font-size: 14px;
-  color: rgb(180, 180, 180);
+  color: rgb(30, 29, 29);
 }
 
 .notfic{
@@ -123,7 +124,7 @@
   flex-direction: column;
   justify-content: space-around;
   /* max-height: calc(100vh - 17rem); */
-  background: rgb(25, 25, 25);
+  background: var(--bgSoft);
   border-radius: 10px;
   margin: 0 20px;
   width: 90%;
@@ -143,7 +144,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem;
-  background: rgb(30, 30, 30);
+  background: var(--textSoft);
 }
 
 /* Messages */
@@ -168,7 +169,7 @@
   padding: 0.75rem;
   border-radius: 5px;
   max-width: 50%;
-  background: #00bd9b;
+  background: var(--bg);
   align-self: flex-end;
   margin-top: 10px;
   flex-grow: 0;
@@ -177,7 +178,7 @@
 .ReceivedMessage{
   display: flex;
   flex-direction: column;
-  background: #282828;
+  background: var(--textSoft);
   padding: 0.75rem;
   border-radius: 5px;
   max-width: 50%;
@@ -201,7 +202,7 @@
 .chat_input {
     display: flex;
     width: 100%;
-    background: rgb(30, 30, 30);
+    background: var(--textSoft);
     padding: 1rem;
     flex-direction: row;
     flex-grow: 0;
@@ -210,7 +211,7 @@
 }
 .send_btn {
   border: none;
-  background: rgba(72, 112, 223, 1);
+  background: var(--bgSoft);
   color: white;
   height: 40px;
   width: 40px;
@@ -218,8 +219,8 @@
 }
 
 .send_btn svg{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Notification */

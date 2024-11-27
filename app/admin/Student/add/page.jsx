@@ -1,6 +1,6 @@
 // import { addUser } from "@/app/lib/actions";
-import styles from "../../../ui/admin/student/addStudent/addstudent.module.css";
-import InputForm from "../../../ui/admin/student/inputForm";
+import styles from "@/app/ui/admin/student/addStudent/addstudent.module.css";
+import InputForm from "@/app/ui/admin/student/inputForm";
 
 const AddStudentPage = () => {
 

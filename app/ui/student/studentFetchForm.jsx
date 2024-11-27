@@ -2,6 +2,7 @@
 import styles from "@/app/ui/admin/student/student.module.css";
 import {useState, useEffect, useCallback} from "react"
 import Image from "next/image";
+import Search from "@/app/ui/search/search";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -57,6 +58,25 @@ const FetchStudent = ({ searchParams }) => {
 
   return (
         <>
+        <div className={styles.top}>
+        <Search />
+        {session?.user.role==="student"?(<>
+          <Link href="/students/add">
+          <button className={styles.addButton}>Register course</button>
+        </Link>
+        </>):(<></>)}
+      </div>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <td>course name</td>
+            <td>course name</td>
+            <td>credit unit</td>
+            <td>Status</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+        <tbody>
         {coursesLoading && <tr>Loading  ...</tr>}
         {courses?.map((course) => ( 
             <tr key={course.id}>
@@ -72,11 +92,13 @@ const FetchStudent = ({ searchParams }) => {
                       Edit Course
                     </button>
                   </Link> */}
-                  <Link href={`/students/${course._id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>
+                  {course.course_name ==="project"?(<>
+                    <Link href={`/students/${course._id}`}>
+                     <button className={`${styles.button} ${styles.view}`}>
                       view courses
-                    </button>
-                  </Link>
+                     </button>
+                    </Link>
+                  </>):(<></>)}
                   {/* <form action="">
                     <input type="hidden" name="id" />
                     <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteUser(course._id)}>
@@ -87,6 +109,8 @@ const FetchStudent = ({ searchParams }) => {
               </td>
             </tr>
            ))}
+         </tbody>
+      </table>
         </>
      );
   };

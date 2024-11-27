@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import moment from "moment";
 import UploadFileModal from "@/app/component/ModalUploadFile";
 
 export default function DownloadFile({searchParams}) {
@@ -138,7 +139,7 @@ useEffect(()=>{
              {filesUrl?.map((course) => ( 
               <tr key={course.id} className={course.senderId===session?.user?.id?styles.receiver:styles.sender}>
               <td>{course.message}</td>
-              <td>{course.createdAt}</td>
+              <td>{moment(course.createdAt).calendar()}</td>
               <>
                 {course.senderId===session?.user?.id?(
                   <td>{course.fileUrl}</td>

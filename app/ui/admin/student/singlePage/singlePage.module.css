@@ -6,7 +6,7 @@
   
   .infoContainer {
     flex: 1;
-    background-color: var(--bgSoft);
+    background-color: var(--bg);
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
@@ -24,8 +24,10 @@
   }
   
   .formContainer {
-    flex: 3;
-    background-color: var(--bgSoft);
+    display: flext;
+    justify-items: center;
+    flex: 50;
+    background-color: var(--bg);
     padding: 20px;
     border-radius: 10px;
   }
@@ -33,14 +35,15 @@
   .form{
     display: flex;
     flex-direction: column;
+    width: 50%;
   }
   
   .form input, .form textarea, .form select{
     padding: 20px;
-    border: 2px solid #2e374a;
+    border: 2px solid var(--textSoft);
     border-radius: 5px;
     background-color: var(--bg);
-    color: var(--text);
+    color: var(--textSoft);
     margin: 10px 0px;
   }
   
@@ -49,9 +52,9 @@
   }
   
   .form button{
-    width: 100%;
+    width: 50%;
     padding: 20px;
-    background-color: teal;
+    background-color: var(--bgSoft);
     color: var(--text);
     border: none;
     border-radius: 5px;

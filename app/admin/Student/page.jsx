@@ -38,7 +38,7 @@ const StudentPage = async ({ searchParams }) => {
       <div className={styles.top}>
         <Search placeholder="Search for a user..." />
         <Link href="/admin/Student/add">
-          <button className={styles.addButton}>Add New</button>
+          <button className={styles.addButton}>Create user</button>
         </Link>
       </div>
       <table className={styles.table}>

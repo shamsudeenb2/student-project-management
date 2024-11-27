@@ -7,21 +7,24 @@ import Image from "next/image";
 import Link from "next/link";
 import FetchStudent from "../ui/student/studentFetchForm";
 import Search from "../ui/search/search";
+import { getServerSession } from "next-auth/next"
+import {authOptions} from "@/app/api/auth/[...nextauth]/route"; 
 // import ProtectedRoute from "../ProtectedRoute";
 
 const StudentPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
+  const session = await getServerSession(authOptions);
   // const courses = await fetch('http://localhost:3000//api/actions/coursePost').then((res) =>
   //   res.json()
   // )
-  // console.log('data', courses.courses)
+  console.log('session serverside', session)
   return (
     <div className={styles.container}>
-      <div className={styles.top}>
+      {/* <div className={styles.top}>
         <Search />
         <Link href="/students/add">
-          <button className={styles.addButton}>Add New</button>
+          <button className={styles.addButton}>Register course</button>
         </Link>
       </div>
       <table className={styles.table}>
@@ -34,10 +37,10 @@ const StudentPage = async ({ searchParams }) => {
             <td>Action</td>
           </tr>
         </thead>
-        <tbody>
+        <tbody> */}
           <FetchStudent/>
-        </tbody>
-      </table>
+        {/* </tbody>
+      </table> */}
      {/* <Pagination count={count} />  */}
     </div>
   );

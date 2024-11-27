@@ -1,5 +1,5 @@
 .container{
-    background-color: var(--bgSoft);
+    background-color: var(--bg);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
@@ -14,8 +14,8 @@
   
   .addButton{
     padding: 10px;
-    background-color: #242425;
-    color: white;
+    background-color: var(--bgSoft);
+    color: var(--text);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -23,6 +23,7 @@
   
   .table{
     width: 100%;
+    color: black;
   }
   
   .table td{
@@ -48,13 +49,13 @@
   .button{
     padding: 5px 10px;
     border-radius: 5px;
-    color: white;
+    color: var(--text);
     border: none;
     cursor: pointer;
   }
   
   .view{
-    background-color: teal;
+    background-color: var(--bgSoft);
   }
   
   .delete{
@@ -74,7 +75,7 @@
   .butt{
     padding: 10px 10px;
     border-radius: 5px;
-    color: #171717;
+    color: var(--text);
     border: none;
     cursor: pointer;
     margin: 10px;

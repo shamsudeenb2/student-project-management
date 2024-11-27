@@ -20,12 +20,6 @@ console.log('id',id)
                 <p>Project Files</p>
               </div>
               </Link>
-             
-              <Link href={`/students/${id}/upload`}>
-              <div className={styles.cards}>
-                <p>Upload</p>
-              </div>
-              </Link>
             </div>
         </div>
     </div>

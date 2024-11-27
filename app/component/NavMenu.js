@@ -12,9 +12,20 @@ function AuthButton(){
     if(session){
         return(
             <div className={styles.nav} >
+              <div className={styles.navNameLinks}>
               <Link href={`/${pathname.split('/').splice(1,1).pop()}`}><div>Home</div></Link>
-              <Link href="/students"><div>student</div></Link>
-              <Link href="/staffs"><div>staff</div></Link>
+              <>
+              {session?.user?.role==="staff"?(
+                <>
+                   <Link href="/students"><div>staff</div></Link>
+                </>
+               ):session?.user?.role ==="student"?(
+                <>
+                   <Link href="/students"><div>student</div></Link>
+                </>
+              ):(<></>)}
+               </>
+              </div>
               <div className={styles.navNameButton}>
               <diV className={styles.navName}>
                 {session?.user?.name} 

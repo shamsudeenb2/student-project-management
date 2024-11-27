@@ -10,12 +10,12 @@ const SingleRoutePage = async ({ params }) => {
   )
   return (
     <div className={styles.container}>
-      <div className={styles.infoContainer}>
+      {/* <div className={styles.infoContainer}> */}
         {/* <div className={styles.imgContainer}>
           <Image src="/noavatar.png" alt="" fill />
         </div>
         {route.title} */}
-      </div>
+      {/* </div> */}
       <div className={styles.formContainer}>
         <AssignForm users={JSON.stringify(users)} uId={id}/>
       </div>

@@ -1,6 +1,6 @@
 // import { updateUser } from "@/app/lib/actions";
 // import { fetchUser } from "@/app/lib/data";
-import styles from "../../../ui/admin/student/singlePage/singlePage.module.css";
+import styles from "@/app/ui/admin/student/singlePage/singlePage.module.css";
 import Image from "next/image";
 
 const SingleStudentPage = async ({ params }) => {
@@ -10,31 +10,40 @@ const SingleStudentPage = async ({ params }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.infoContainer}>
+      {/* <div className={styles.infoContainer}> */}
         {/* <div className={styles.imgContainer}>
           <Image src={ "/noavatar.png"} alt="" fill />
         </div>user name */}
         {/* {user.username} */}
-      </div>
+      {/* </div> */}
       <div className={styles.formContainer}>
         <form action="" className={styles.form}>
           <input type="hidden" name="id" value=""/>
+          <div>
           <label>Name</label>
           <input type="text" placeholder="" name="name" required />
+          </div>
+          <div>
           <label>Username</label>
           <input type="text" name="username" placeholder="" />
+          </div>
+          <div>
           <label>Email</label>
           <input type="email" name="email" placeholder="" />
+          </div>
+          <div>
           <label>Password</label>
           <input type="password" name="password" />
+          </div>
+          <div>
           <label>Phone</label>
           <input type="text" name="phone" placeholder="" />
-          <label>Personnel Number</label>
-          <input type="text" placeholder="" name="personnelNo" required />
+          </div>
+          <div>
           <label>State</label>
           <input type="text" placeholder="" name="state" required />
-          <label>Station</label>
-          <input type="text" placeholder="" name="station" required />
+          </div>
+          
           <button>Update</button>
         </form>
       </div>

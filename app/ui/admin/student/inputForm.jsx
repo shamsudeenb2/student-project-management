@@ -13,7 +13,7 @@ const  InputForm=()=>{
     password: "",
     personalNo: "",
     state: "",
-    dob: "",
+    // dob: "",
     program: "",
     role: "",
   });
@@ -46,7 +46,7 @@ const  InputForm=()=>{
                 password: "",
                 personalNo: "",
                 state: "",
-                dob: "",
+                // dob: "",
                 program: "",
                 role: "",
               });
@@ -66,7 +66,7 @@ const  InputForm=()=>{
         <input type="password" placeholder="password" name="password" value={inputs.password} onChange={ handleOnChange}  required/>
         <input type="text" placeholder="Registration number" name="personalNo" value={inputs.personalNo} onChange={ handleOnChange}  required />
         <input type="text" placeholder="state" name="state" value={inputs.state} onChange={ handleOnChange}  required />
-        <input type="text" placeholder="Date of Birth" name="dob" value={inputs.dob} onChange={ handleOnChange}  />
+        {/* <input type="text" placeholder="Date of Birth" name="dob" value={inputs.dob} onChange={ handleOnChange}  /> */}
         <input type="text" placeholder="program" name="program"  value={inputs.program} onChange={ handleOnChange} />
 
         <select name="role" id="role" value={inputs.role} onChange={ handleOnChange} >

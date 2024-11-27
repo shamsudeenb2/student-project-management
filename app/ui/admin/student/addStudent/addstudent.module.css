@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--bgSoft);
+    background-color: var(--bg);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
@@ -19,13 +19,14 @@
     padding: 15px;
     background-color: var(--bg);
     color: var(--text);
-    border: 2px solid #829cda;
+    border: 2px solid var(--textSoft);
     border-radius: 5px;
     margin-bottom: 30px;
+
   }
   
   .form input, .form select {
-    width: 20%;
+    width: 30%;
   }
   
   .form textarea{
@@ -35,8 +36,8 @@
   .form button{
     width: 15%;
     padding: 12px;
-    background-color: teal;
-    color: var(--bgSoft);
+    background-color: var(--bgSoft);
+    color: var(--text);
     border: none;
     border-radius: 5px;
     cursor: pointer;

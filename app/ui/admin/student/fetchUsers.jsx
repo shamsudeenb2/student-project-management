@@ -74,11 +74,11 @@ console.log('courses', users?.users)
               <td>{user.program}</td>
               <td>
                 <div className={styles.buttons}>
-                  <Link href={`/admin/Student/${user._id}`}>
+                  {/* <Link href={`/admin/Student/${user._id}`}>
                     <button className={`${styles.button} ${styles.view}`}>
                       Edit
                     </button>
-                  </Link>
+                  </Link> */}
                   {user.role ==="student"?(
                     <>
                         <Link href={`/admin/AssignSupervisor/${user._id}`}>

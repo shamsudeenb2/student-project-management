@@ -1,7 +1,7 @@
 .container {
     padding: 20px;
     border-radius: 10px;
-    background-color:  #2e374a;
+    background-color: var(--bgSoft);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,13 +26,14 @@
     flex-basis: 100rem;
     align-items: center;
     gap: 20px;
+    margin-left: 40px;
   }
   
   .search {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #2e374a;
+    background-color: var(--bg);
     padding: 10px;
     border-radius: 10px;
   }
@@ -55,23 +56,33 @@
     width: 100%;
   }
 
+  .navNameLinks{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+  .nav a{
+    width:25%
+  }
+
   .navName{
     display: flex;
-    background-color: rgb(46, 84, 116);
     align-items: center;
-    border-radius: 20px;
-    padding: 10px;
+    margin-right: 8px;
   }
 
   .navNameButton{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
+    padding: 10px;
+    border-radius: 20px;
+    width: 40%;
+    justify-items: end;
   }
 
   .navNameButton button{
-    color: antiquewhite;
+    color: var(--textSoft);
     border: none;
     padding: 2px;
     background-color: transparent;
@@ -79,7 +90,7 @@
 
   .navName button{
     padding-left: 7px;
-    background-color:  rgb(46, 84, 116);
+    background-color:  var(--bg);
     border: none;
     color: aliceblue;
     font-weight: 100;
