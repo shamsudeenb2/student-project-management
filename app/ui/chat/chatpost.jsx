@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import styles from './chat.module.css';
 import { useSession } from 'next-auth/react';
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 let socket;
 

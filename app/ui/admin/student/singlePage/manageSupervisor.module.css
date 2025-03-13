@@ -1,0 +1,141 @@
+/* General Container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+    color: rgb(32, 32, 32);
+  }
+  
+  /* Header Styling */
+  .header {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .Projecmain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  /* Student Info Section */
+  .studentInfo {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  
+  .studentInfo h2 {
+    color: #003366;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .studentInfo p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  .projectItems{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .projectInfo{
+    
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .projectInfo p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  .projectHeader h2 {
+    color: #003366;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Supervisor Selection */
+  .supervisorSelection {
+    width: 50%;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .supervisorSelection label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .supervisorSelection select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .supervisorSelection button{
+    padding: 12px;
+    background-color: var(--bgSoft);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+ }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .studentInfo, .supervisorSelection {
+      width: 90%;
+    }
+  
+    .header h1 {
+      font-size: 2rem;
+    }
+  }
+  

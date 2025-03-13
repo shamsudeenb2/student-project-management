@@ -1,28 +1,82 @@
-.container {
-    background-color: var(--bg);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    height: 550px;
-  }
+.container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f4f6f9;
+  font-family: 'Arial', sans-serif;
+  color: rgb(32, 32, 32);
+}
+
+/* Header Styling */
+.header {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
   
-  .form {
+  .formContainer {
+    margin: 20px;
+    padding: 10px;
+  }
+  .formInput{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+   gap: 4;
+  }
+
+  .formCouse{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     gap: 4px;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* "flex flex-col gap-2 w-full md:w-1/4" */
+  .feildsInput{
+    display: flex;
+    flex-direction: column;
+    gap: 2;
+    width: 100%;
+  }
+  /* "text-xs text-gray-500" */
+  .feildsInput label{
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem;
+    color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+  }
+  /* "ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full" */
+  .inputField{
+    box-shadow: 1.5px;
+    padding: 10px;
+    border-radius: 0.375rem;
+    width: 100%;
+    font-size: 0.875rem;
     margin: 10px;
   }
   
-  .form input,
+  @media only screen and (min-width: 768px) {
+    .feildsInput, .selectFeild{
+      width: 30%;
+    }
+  }
+  
+  /* .form input,
   .form textarea,
   .form select {
     padding: 15px;
     background-color: var(--bg);
-    color: var(--text);
+    color: rgb(98, 96, 96);
     border: 2px solid var(--textSoft);
     border-radius: 5px;
     margin-bottom: 30px;
-
   }
   
   .form input, .form select {
@@ -31,8 +85,30 @@
   
   .form textarea{
     width: 20%;
+  } */
+
+  /* "flex flex-col gap-2 w-full md:w-1/4 justify-center" */
+
+  .imageUpload{
+    display: flex;
+    direction: column;
+    justify-content: center;
+    margin: 10px;
   }
-  
+
+  /* "text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
+   */
+   .imageLabel{
+    font-size: small;
+    color: gray;
+    align-items: center;
+    cursor: pointer;
+   }
+.imageInput{
+  display:none;
+  margin-top: 50px;
+}
+
   .form button{
     width: 15%;
     padding: 12px;
@@ -41,4 +117,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
   }

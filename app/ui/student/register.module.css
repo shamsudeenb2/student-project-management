@@ -1,16 +1,27 @@
-.container {
-    background-color: var(--bgSoft);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    height: 550px;
-  }
+.container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f4f6f9;
+  font-family: 'Arial', sans-serif;
+  color: rgb(32, 32, 32);
+}
+
+/* Header Styling */
+.header {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 70px;
+}
   
   .form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 70px 5px;
+    margin-top: 70px;
+    
   }
   
   .form input,
@@ -18,7 +29,7 @@
   .form select {
     padding: 10px;
     background-color: var(--bg);
-    color: var(--text);
+    color: rgb(50, 49, 49);
     border: 2px solid var(--textSoft);
     border-radius: 5px;
   }
@@ -36,7 +47,7 @@
     width: 10%;
     /* padding: 12px; */
     background-color: var(--bgSoft);
-    color: var(--textSoft);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;

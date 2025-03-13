@@ -1,0 +1,174 @@
+/* General Container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header Styling */
+  .header {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+   /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+    padding-top: 60px;
+    margin-top: 40px;
+  }
+  
+  /* Upload Section */
+  .uploadSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .formDiv{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+  }
+  .fileInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .textareaStyle{
+    background-color: var(--bg);
+    width: 100%;
+    height: 20%;
+    padding: 10px;
+    box-shadow: rgb(206, 223, 223);
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .uploadButton {
+    background: #003366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .uploadButton:hover {
+    background: #0055a5;
+  }
+
+  .selectStudent{
+    margin: 10px 5px;
+    padding: 10px;
+    border: none;
+  }
+
+  .selectStudent select{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  /* File Lists */
+  .fileLists {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  /* File Sections */
+  .fileSection {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    text-align: center;
+  }
+  
+  .fileSection h2 {
+    color: #003366;
+    margin-bottom: 15px;
+  }
+  
+  .fileSection ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .fileSection li {
+    margin: 10px 0;
+  }
+  
+  .fileSection a {
+    text-decoration: none;
+    color: #0055a5;
+    font-weight: bold;
+  }
+  
+  .fileSection a:hover {
+    text-decoration: underline;
+  }
+  
+
+  .tableContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .table{
+    /* width: 65%; */
+    color: #413f3f;
+  }
+  .table thead{
+    font-size: medium;
+    font-weight: bold;
+  }
+  
+  .table td{
+    padding: 5px;
+  }
+
+  .buttons{
+    display: flex;
+    gap: 10px;
+    border: none;
+  }
+
+  .buttons button{
+   border: none;
+   padding: 10px;
+   border-radius: 7px;
+   background-color:rgb(120, 157, 170);
+   color: white;
+  }
+  

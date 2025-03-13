@@ -16,7 +16,12 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       {/* <div className={styles.title}>{pathname.split("/").pop()}</div> */}
-        <div className={styles.title1}><Link href="/"><Image src="/afitLogo1.PNG" width={50} height={50} /></Link></div>
+        <div className={styles.title1}>
+          <Link href="/" className={styles.homeTile}>
+          <Image src="/afit.png" alt="" width={60} height={60} />
+          <p>AFIT</p>
+        </Link>
+        </div>
          <div className={styles.menu}>
           {/* <div className={styles.search}> */}
              <NavMenu />

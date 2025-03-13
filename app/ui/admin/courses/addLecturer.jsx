@@ -5,6 +5,8 @@ import { MdSearch } from "react-icons/md";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "@/app/ui/student/register.module.css";
 import { useSession } from "next-auth/react";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 const AddLecturer=({ uId})=>{
     const [selectId, setSelectId] = useState("")

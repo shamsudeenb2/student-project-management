@@ -4,6 +4,8 @@ import {useState, useEffect, React} from "react";
 import { MdSearch } from "react-icons/md";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "@/app/ui/admin/student/singlePage/singlePage.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 
 const AssignForm=({users, uId})=>{
@@ -47,7 +49,7 @@ const AssignForm=({users, uId})=>{
         setSelectId(e.target.value);
       } ;
     };
-    const userList = JSON.parse(users)
+    
 
     useEffect(()=>{
       const getstaffUser= async()=>{
@@ -78,7 +80,7 @@ const AssignForm=({users, uId})=>{
              );
             })}
            </select>
-          <button onClick={handleSaveData}>Update</button>
+          <button onClick={handleSaveData}>Assign</button>
         </form>
     )
 }

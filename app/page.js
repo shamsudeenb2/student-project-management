@@ -1,59 +1,83 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+// import Head from 'next/head';
+// import Image from 'next/image';
+// import Link from 'next/link';
 import styles from './ui/home.module.css'
+
+// export default function Home() {
+//   return (
+//     <>
+//       <Head>
+//         <title>AFIT</title>
+//         <meta name="description" content="AFIT Motto." />
+//       </Head>
+
+//       <main className={styles.main}>
+//         <section className={styles.features}>
+//           <Image src="/afitbuilding.jpg" 
+//           alt="AFIT" objectFit="cover" 
+//           width={500} height={500} 
+//           style={{ width: '100%', 
+//           height: 'auto' }} />
+//           <div className={styles.hometext}>
+//           <h1>Supervisor Project Management System</h1>
+//           <p></p>
+//           </div>
+//         </section>
+//       </main>
+//     </>
+//   );
+// }
+
+import Image from 'next/image';
+import Header from './ui/Header';
+
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Air Force Institute of Technology</title>
-        <meta name="description" content="AFIT Motto." />
-      </Head>
+    <div className={styles.container}>
+      {/* Hero Section */}
+      <Header />
 
-      <main className={styles.main}>
-        {/* Hero Section */}
-        <section className={styles.hero}>
-          <div className={styles.heroContent}>
-            <h1>Air Force Institute of Technology</h1>
-            
-            
+      {/* About Section */}
+      <section className={styles.section}>
+        <h2>About AFIT</h2>
+        <p>
+          The Air Force Institute of Technology is a center for excellence in science, engineering, and aerospace technology, committed to advancing knowledge and innovation.
+        </p>
+      </section>
+
+      {/* Programs Section */}
+      <section id="programs" className={styles.programsSection}>
+        <h2>Our Programs</h2>
+        <div className={styles.programsGrid}>
+          {["Aerospace Engineering", "Cyber Security", "Mechanical Engineering"].map((program, index) => (
+            <div key={index} className={styles.programCard}>
+              <h3>{program}</h3>
+              <p>Explore our cutting-edge {program.toLowerCase()} program.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className={styles.section}>
+        <h2>What Our Students Say</h2>
+        <div className={styles.testimonialsGrid}>
+          <div className={styles.testimonialCard}>
+            <p>“AFIT has provided me with the skills to excel in aerospace technology.”</p>
+            <h4>- John Doe</h4>
           </div>
-          {/* <div className={styles.heroImage}>
-            <Image src="/images/hero-image.jpg" alt="Postal Service" width={500} height={500} />
-          </div> */}
-        </section>
+          <div className={styles.testimonialCard}>
+            <p>“A transformative learning experience with hands-on projects.”</p>
+            <h4>- Jane Smith</h4>
+          </div>
+        </div>
+      </section>
 
-        {/* Features Section */}
-        <section className={styles.features}>
-          {/* <h2>Why Choose Us?</h2>
-          <div className={styles.featureList}>
-            <div className={styles.feature}> */}
-              <Image src="/afitbuilding.jpg" alt="AFIT" width={800} height={350} />
-              {/* <h3>Fast Delivery</h3>
-              <p>We ensure your packages are delivered quickly and securely.</p> */}
-            {/* </div>
-            <div className={styles.feature}> */}
-              {/* <Image src="/afitConvocation.jpg" alt="Real-time Tracking" width={500} height={500} /> */}
-              {/* <h3>Real-time Tracking</h3>
-              <p>Track your parcels in real-time with our state-of-the-art system.</p> */}
-            {/* </div> */}
-            {/* <div className={styles.feature}>
-              <Image src="/icons/security.svg" alt="Secure Handling" width={64} height={64} />
-              <h3>Secure Handling</h3>
-              <p>Your packages are handled with utmost care and security.</p>
-            </div> */}
-          {/* </div> */}
-        </section>
-        {/* Call to Action Section */}
-        {/* <section className={styles.callToAction}>
-          <h2>Ready to Send Your Parcel?</h2>
-          <p>Sign up now and start sending with ease!</p>
-          <Link href="/signup" className={styles.cta}>
-            Get Started
-          </Link>
-        </section> */}
-      </main>
-    </>
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <p>&copy; {new Date().getFullYear()} AFIT. All rights reserved.</p>
+      </footer>
+    </div>
   );
 }

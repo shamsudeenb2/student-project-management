@@ -1,0 +1,74 @@
+/* General Container */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+    color: rgb(32, 32, 32);
+  }
+  
+  /* Header Styling */
+  .header {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  /* Table Styling */
+  .studentTable {
+    width: 80%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .studentTable th, .studentTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .studentTable th {
+    background: #003366;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .studentTable tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .studentTable {
+      width: 100%;
+    }
+  
+    .header h1 {
+      font-size: 2rem;
+    }
+  }
+  

@@ -7,6 +7,8 @@ import UserChat from "@/app/component/chat/UserChat";
 import PotentialChats from "@/app/component/chat/PotentialChats";
 import ChatBox from "@/app/component/chat/chatBox";
 import { io } from "socket.io-client";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 
  const ChatContex = ({})=>{
@@ -84,11 +86,11 @@ import { io } from "socket.io-client";
     useEffect(()=>{
         const getUsers = async()=>{
             const checkRole = session?.user?.role ==="staff"?"student":"staff"
-            const response = await fetch(`/api/charts/userChat?id=${checkRole}`)     
+            const response = await fetch(`/api/charts/userChat?id=${checkRole}`) //find all users that have different roles from currently login user    
             if(response.ok){
                 const data = await response.json();
                 
-               const pChats = data?.users?.filter((u)=>{
+               const pChats = data?.users?.filter((u)=>{  //
                 let isChatCreated =false
                 
                 if(session?.user?.id === u._id) return false;
@@ -244,7 +246,7 @@ import { io } from "socket.io-client";
 
     return(
         <div className={styles.container}>
-            <div className={styles.chatsContentList}>
+          <div className={styles.chatsContentList}>
              <PotentialChats potentialChats ={potentialChats} createChat={createChat} creatChatLoading={creatChatLoading}/>
              {userChats?.length < 1?null : (
                 <div className={styles.chatContent}>

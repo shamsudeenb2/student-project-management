@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: var(--bgSoft);
+    background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     width: max-content;
+    margin-left: 20px;
   }
   
   .input {

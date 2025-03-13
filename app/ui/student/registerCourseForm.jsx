@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import styles from "./register.module.css";
 import { useRouter } from 'next/navigation'
 import { useSession } from "next-auth/react";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 
 const  CourseInputForm=()=>{
@@ -24,7 +26,7 @@ const  CourseInputForm=()=>{
 
         const handleSaveData = async (e) => {
             e.preventDefault();
-            console.log('submit', selectId);
+            console.log('selected id and session', selectId, session?.user);
 
             const response = await fetch(`http://localhost:3000//api/actions/registerCourse?id=${session?.user?.id}`, {
               method: "PUT",
@@ -35,7 +37,10 @@ const  CourseInputForm=()=>{
             });
           
             if (response.ok) {
-              alert("Data saved successfully!");
+              const data = await response.json();
+              
+              console.log("course registration",data)
+              alert(data.message);
               setSelectId("");
               router.push("/students");
             } else {

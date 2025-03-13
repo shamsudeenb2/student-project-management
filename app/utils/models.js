@@ -55,6 +55,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    img:{type:String}
   },
   { timestamps: true }
 );
@@ -79,6 +80,7 @@ const coursesSchema = new mongoose.Schema({
     type: String,
   },
   lecturer:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  project_supervisors:[{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
   createdAt: {
     type: Date,
     default: Date.now
@@ -95,15 +97,15 @@ const ChatSchema = new mongoose.Schema({
 },{timestamps: true});
 
 const messageSchema = new mongoose.Schema({
-  chatId: String,
-  senderId: String,
+  chatId: {type:String,required: true,},
+  senderId: {type:String,required: true,},
   text: String,
 },{timestamps: true});
 
 const fileUrlSchema = new mongoose.Schema({
-  chatId: String,
-  senderId: String,
-  fileUrl: String,
+  chatId: {type:String,required: true,},
+  senderId: {type:String,required: true,},
+  fileUrl: {type:String,required: true,},
   message: String,
   isDownloaded: Boolean
 },{timestamps: true});

@@ -1,54 +1,53 @@
-// import { deleteUser } from "@/app/utils/actions";
-import { fetchUsers } from "@/app/utils/data";
-// import Pagination from "@/app/ui/dashboard/pagination/pagination";
-// import Search from "@/app/ui/dashboard/search/search";
-import styles from "@/app/ui/admin/student/student.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import FetchStudent from "../ui/student/studentFetchForm";
-import Search from "../ui/search/search";
-import { getServerSession } from "next-auth/next"
-import {authOptions} from "@/app/api/auth/[...nextauth]/route"; 
-// import ProtectedRoute from "../ProtectedRoute";
+import Link from 'next/link';
+import styles from "@/app/ui/admin/student/studenDashbord.module.css";
+import { FaBook, FaEye, FaComments, FaFileUpload } from 'react-icons/fa';
+import ProtectedRoute from "../ProtectedRoute";
+import { getSession } from "@/app/configuration/auth"
 
-const StudentPage = async ({ searchParams }) => {
-  const q = searchParams?.q || "";
-  const page = searchParams?.page || 1;
-  const session = await getServerSession(authOptions);
-  // const courses = await fetch('http://localhost:3000//api/actions/coursePost').then((res) =>
-  //   res.json()
-  // )
-  console.log('session serverside', session)
+const StudentDashboard= async()=>{
+  const  session = await getSession()
+ 
   return (
     <div className={styles.container}>
-      {/* <div className={styles.top}>
-        <Search />
-        <Link href="/students/add">
-          <button className={styles.addButton}>Register course</button>
-        </Link>
-      </div>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <td>course name</td>
-            <td>course name</td>
-            <td>credit unit</td>
-            <td>Status</td>
-            <td>Action</td>
-          </tr>
-        </thead>
-        <tbody> */}
-          <FetchStudent/>
-        {/* </tbody>
-      </table> */}
-     {/* <Pagination count={count} />  */}
+      <header className={styles.header}>
+        <h1>Student Dashboard</h1>
+        <p>Welcome! Manage your courses and interact with your supervisor.</p>
+      </header>
+      <main className={styles.main}>
+        <div className={styles.cardContainer}>
+          <Link href="/students/add" className={styles.card}>
+            <div className={styles.icon}><FaBook size={40} /></div>
+            <h2>Course Registration</h2>
+            <p>Register for your courses easily.</p>
+          </Link>
+          <Link href="/students/courses" className={styles.card}>
+            <div className={styles.icon}><FaEye size={40} /></div>
+            <h2>View Registered Courses</h2>
+            <p>Check your registered courses and schedule.</p>
+          </Link>
+          <Link href={`/students/${session?.user?.id}/chat`} className={styles.card}>
+            <div className={styles.icon}><FaComments size={40} /></div>
+            <h2>Chat with Supervisor</h2>
+            <p>Discuss your project and seek guidance.</p>
+          </Link>
+          <Link href={`/students/${session?.user?.id}/files`}  className={styles.card}>
+            <div className={styles.icon}><FaFileUpload size={40} /></div>
+            <h2>Share Files</h2>
+            <p>Upload and share documents with your supervisor.</p>
+          </Link>
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <p>&copy; {new Date().getFullYear()} AFIT Student Portal</p>
+      </footer>
     </div>
   );
-};
-// const TestProtected = () => (
-//   <ProtectedRoute allowedRoles={['admin']}>
-//     <StudentPage />
-//   </ProtectedRoute>
-// );
+}
 
-export default StudentPage;
+const TestProtected = () => (
+  <ProtectedRoute allowedRoles={['student']}>
+    <StudentDashboard />
+  </ProtectedRoute>
+);
+
+export default TestProtected;

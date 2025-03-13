@@ -2,6 +2,9 @@
 import { useState } from "react";
 import styles from "./addStudent/addstudent.module.css";
 import { useRouter } from 'next/navigation'
+import InputField from "@/app/component/InputForm";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 
 const  CourseInputForm=()=>{
@@ -47,13 +50,48 @@ const  CourseInputForm=()=>{
           };
       
     return(
-        <div>
+        <div className={styles.formContainer}>
         <form action=" " className={styles.form}>
-        <input type="text" placeholder=" Course name" value={inputs.course_name} name="course_name" onChange={ handleOnChange} required />
-        <input type="text" placeholder="Course Code" name="course_code" value={inputs.course_code} onChange={ handleOnChange} required />
-        <input type="text" placeholder="Credit unit" name="credit_unit" value={inputs.credit_unit} onChange={ handleOnChange} required />
-        <input type="text" placeholder="Faculty" name="facaulty" value={inputs.facaulty} onChange={ handleOnChange} />
-        <input type="text" placeholder=" Department" name="department" value={inputs.department} onChange={ handleOnChange}  required />
+        <div className={styles.formCouse}>
+          <InputField
+           type="text"
+           label="Course name"
+           name="course_name"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.course_name}
+          />
+          <InputField
+           type="text"
+           label="Course code"
+           name="course_code"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.course_code}
+          />
+          <InputField
+           label="Credit unit"
+           name="credit_unit"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.credit_unit}
+          />
+          <InputField
+           label="Facaulty"
+           name="facaulty"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.facaulty}
+          />
+          <InputField
+           type="text"
+           label="Department"
+           name="department"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.department}
+          />
+        </div>
         <button type="submit" onClick={handleSaveData}>Submit</button>
       </form>
       </div>

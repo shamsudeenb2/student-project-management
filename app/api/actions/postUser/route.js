@@ -4,26 +4,47 @@ import { connectToDB } from "@/app/utils/databaseCon";
 import { NextResponse } from 'next/server'
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import path from "path";
+import { writeFile } from "fs/promises";
 
 export async function POST(req, res) {
+  const formData = await req.formData();
   
   // const inputs = await req.json();
-  const { 
-    name,
-    username,
-    email,
-    phone,
-    password,
-    personalNo,
-    state,
-    dob,
-    program,
-    role
-   }= await req.json();;
-     
-     console.log("user reach here")
+  const img = formData.get("img");
+  const email = formData.get("email");
+  const phone = formData.get("phone");
+  const password = formData.get("password");
+  const personalNo = formData.get("personalNo");
+  const username = formData.get("username");
+  const role = formData.get("role");
+  const name = formData.get("name");
+  const state = formData.get("state");
+  const program = formData.get("program");
+  // const { 
+  //   name,
+  //   username,
+  //   email,
+  //   phone,
+  //   password,
+  //   personalNo,
+  //   state,
+  //   dob,
+  //   program,
+  //   role
+  //  }= await req.json();;
+  
+     console.log("user reach here",name,username,state,personalNo,password)
+     const buffer = Buffer.from(await img.arrayBuffer());
+     const filename =  img.name.replaceAll(" ", "_");
+     console.log(filename)
 
   try {
+
+    await writeFile(
+      path.join(process.cwd(), "public/profile/" + filename),
+      buffer
+    );
     await connectToDB();
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -36,9 +57,9 @@ export async function POST(req, res) {
         password: hashedPassword,
         personalNo,
         state,
-        dob,
         program,
-        role
+        role,
+        img:filename
       });
 
      const savedUser = await newUser.save();
@@ -54,10 +75,13 @@ export async function POST(req, res) {
 
 
 export async function GET(req, res) {
+  const searchParams = req.nextUrl.searchParams;
+  const role = searchParams.get('role');
+
   await connectToDB();
-  
+  console.log("server fetch user role", role)
   try {
-    const users = await User.find();
+    const users = await User.find({role:role});
 
     if (!users) {
       return NextResponse.json({ error: 'user not found' }, { status: 404 })
@@ -82,15 +106,15 @@ export async function PUT(req, res) {
     
     console.log("when do inputs and id", inputs,id)
 
-    const users = await User.findByIdAndUpdate(id, {supervisor:inputs});
+    const user = await User.findByIdAndUpdate(id, {supervisor:inputs}).populate("supervisor");
   
 
-    if (!users) {
+    if (!user) {
       return NextResponse.json({ error: 'user not found' }, { status: 404 })
     }
     revalidatePath("/admin/Student")
-    console.log("user staff id", users)
-    return NextResponse.json({ users }, { status: 200 })
+    console.log("user staff id", user)
+    return NextResponse.json({ user }, { status: 200 })
   } catch (error) {
     return NextResponse.json({ error: 'server error' }, { status: 500 })
   }

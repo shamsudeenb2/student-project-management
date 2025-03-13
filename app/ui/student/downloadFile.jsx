@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import moment from "moment";
 import UploadFileModal from "@/app/component/ModalUploadFile";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 export default function DownloadFile({searchParams}) {
     const q = searchParams?.q || "";

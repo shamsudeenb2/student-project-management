@@ -98,14 +98,42 @@ export async function PUT(req, res) {
     const updateFields={
       supervisor: inputs
     }
-    
-    console.log("update course", id, inputs)
+    console.log("course registration",inputs,id)
 
-    await User.updateOne({ _id:id },{$push: { courses: inputs } });
+    const student = await User.findById(id);
+    console.log("course registration student",student)
+    if (!student) {
+       return NextResponse.json({ success: false, message: 'Student not found' });
+    }
+
+    // Check if the course exists
+    const course = await Courses.findById(inputs);
+    console.log("course registration course", course)
+    if (!course) {
+       return NextResponse.json({ success: false, message: 'Course not found' });
+    }
+
+    // Check if the course is already registered
+    const isRegistered = student.courses.includes(inputs);
+
+    console.log("course registration isRegister",isRegistered)
+    if (isRegistered) {
+       return NextResponse.json({ success: true, message: 'Course already registered', course });
+    } else {
+      // Update the student's course list
+      // student.courses.push(courseId);
+      // await student.save();
+      await User.updateOne({ _id:id },{$push: { courses: inputs } });
+      console.log("course registration student save", student)
+       return NextResponse.json({ success: true, message: 'Course registered successfully', course });
+    }
+
+    // 
 
     revalidatePath("/students")
     return NextResponse.json({ success: true}, { status: 201 });
   } catch (error) {
+
     return NextResponse.json({ error: 'server error' }, { status: 500 })
   }
 }

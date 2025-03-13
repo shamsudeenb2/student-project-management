@@ -1,9 +1,19 @@
-.container {
-    display: flex;
-    gap: 50px;
-    margin-top: 20px;
-  }
-  
+.container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f4f6f9;
+  font-family: 'Arial', sans-serif;
+  color: rgb(32, 32, 32);
+}
+
+/* Header Styling */
+.header {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
   .infoContainer {
     flex: 1;
     background-color: var(--bg);
@@ -34,30 +44,33 @@
   
   .form{
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 70px;
   }
   
   .form input, .form textarea, .form select{
-    padding: 20px;
+    padding: 10px;
+    background-color: var(--bg);
+    color: rgb(50, 49, 49);
     border: 2px solid var(--textSoft);
     border-radius: 5px;
-    background-color: var(--bg);
-    color: var(--textSoft);
-    margin: 10px 0px;
   }
-  
+
+  .form input, .form select {
+    width: 20%;
+    margin-right: 10px;
+  }
   .form label{
     font-size: 12px;
   }
   
   .form button{
-    width: 50%;
-    padding: 20px;
+     width: 10%;
+    /* padding: 12px; */
     background-color: var(--bgSoft);
-    color: var(--text);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
   }

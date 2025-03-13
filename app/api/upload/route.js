@@ -12,7 +12,7 @@ export const POST = async (req, res) => {
   const text = formData.get("text");
   const chatId = formData.get("chatId");
   const senderId = formData.get("senderId");
-  console.log("form data", text,senderId, chatId)
+  console.log("form data", file)
   if (!file) {
     return NextResponse.json({ error: "No files received." }, { status: 400 });
   }

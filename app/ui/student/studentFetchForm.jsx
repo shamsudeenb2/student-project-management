@@ -6,6 +6,8 @@ import Search from "@/app/ui/search/search";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 const FetchStudent = ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -59,21 +61,18 @@ const FetchStudent = ({ searchParams }) => {
   return (
         <>
         <div className={styles.top}>
-        <Search />
-        {session?.user.role==="student"?(<>
-          <Link href="/students/add">
-          <button className={styles.addButton}>Register course</button>
-        </Link>
-        </>):(<></>)}
-      </div>
-      <table className={styles.table}>
+        <Search placeholder={'search...'}/>
+        </div>
+        <main className={styles.main}>
+        <table className={styles.table}>
         <thead>
           <tr>
             <td>course name</td>
             <td>course name</td>
             <td>credit unit</td>
-            <td>Status</td>
-            <td>Action</td>
+            <td>Facaulty</td>
+            <td>Department</td>
+           
           </tr>
         </thead>
         <tbody>
@@ -92,26 +91,21 @@ const FetchStudent = ({ searchParams }) => {
                       Edit Course
                     </button>
                   </Link> */}
-                  {course.course_name ==="project"?(<>
-                    <Link href={`/students/${course._id}`}>
-                     <button className={`${styles.button} ${styles.view}`}>
-                      view courses
-                     </button>
-                    </Link>
-                  </>):(<></>)}
                   {/* <form action="">
                     <input type="hidden" name="id" />
                     <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteUser(course._id)}>
                       Delete 
                     </button>
                   </form> */}
-                </div>
-              </td>
-            </tr>
-           ))}
-         </tbody>
-      </table>
-        </>
+                 </div>
+                </td>
+              </tr>
+             ))}
+            </tbody>
+         </table>
+        </main>
+     
+       </>
      );
   };
 

@@ -3,6 +3,8 @@ import styles from "@/app/ui/admin/student/student.module.css";
 import {useState, useEffect, useCallback} from "react"
 import Image from "next/image";
 import Link from "next/link";
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 const FetchCourses = ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -41,15 +43,16 @@ const FetchCourses = ({ searchParams }) => {
             return setCoursesError(response.error)
         }
         const data = await response.json();
-        setCourses(data)
+        console.log("list of courses", data?.courses)
+        setCourses(data?.courses)
     }
     getCourses()
 },[])
 console.log('courses', courses)
   return (
         <tbody>
-          {coursesLoading && <tr>Loading  ...</tr>}
-          {courses?.courses?.map((course) => ( 
+          {coursesLoading && <p>Loading  ...</p>}
+          {courses?.map((course) => ( 
             <tr key={course.id}>
               <td>{course.course_name}</td>
               <td>{course.course_code}</td>
@@ -57,12 +60,40 @@ console.log('courses', courses)
               <td>{course.facaulty}</td>
               <td>{course.department}</td>
               <td>
-                <div className={styles.buttons}>
-                  <Link href={`/admin/Staff/${course._id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>
-                      add lecturer
-                    </button>
-                  </Link>
+              <div className={styles.buttons}>
+                <>
+                  {course.course_name ==="project"?(
+                    <>
+                     <Link href={`/admin/Staff/assign-project-supervisor/${course._id}`}>
+                        <button className={`${styles.button} ${styles.view}`}>
+                          Assign Supervisor
+                        </button>
+                      </Link>
+                    </>
+                  ):(
+                      <>
+                         {course.lecturer!=null?(
+                          <>
+                            <Link href={`/admin/Staff/update/${course._id}`}>
+                              <button className={`${styles.button} ${styles.view}`}>
+                                update Lecturer
+                              </button>
+                            </Link>
+                          </>
+                    ):(
+                      <>
+                        <Link href={`/admin/Staff/${course._id}`}>
+                          <button className={`${styles.button} ${styles.Changebutton}`}>
+                            assign Lecturer
+                          </button>
+                        </Link>      
+                      </>
+                          )}
+                      </>
+                    )}
+                 
+                </>
+                  
                   <form action="">
                     <input type="hidden" name="id" />
                     <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteUser(course._id)}>

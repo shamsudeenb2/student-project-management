@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Link from "next/link";
 import styles from "@/app/ui/student/studentFiles.module.css"
+import { ToastContainer, toast } from 'react-toastify';
+import FadeLoader from "react-spinners/FadeLoader";
 
 
 const UploadFileModal = ({onClose, title, chatId,senderId}) => {
@@ -38,7 +40,7 @@ const UploadFileModal = ({onClose, title, chatId,senderId}) => {
       formData.append('senderId', senderId);
 
 
-      console.log("form data", nt)
+      console.log("form data", formData.get("file"))
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,

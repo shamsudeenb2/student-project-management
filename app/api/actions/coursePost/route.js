@@ -13,7 +13,7 @@ export async function POST(req, res) {
     department,
    }=inputs;
      
-     console.log("user input type is:",inputs)
+    console.log("user input type is:",inputs)
 
   try {
     await connectToDB();
@@ -28,6 +28,7 @@ export async function POST(req, res) {
       
     const courses = await newCourse.save();
 
+    console.log("user input type is:",courses)
 
     return NextResponse.json({ success: true, data: courses }, { status: 201 });
     // if (!courses) {
@@ -38,6 +39,7 @@ export async function POST(req, res) {
     // NextResponse.redirect("/admin/Staff")
     // return NextResponse.json({ courses }, { status: 200 })
   } catch (error) {
+    console.error(error)
     return NextResponse.json({ error: 'internal server error', error }, { status: 500 })
   }
 }
@@ -64,10 +66,10 @@ export async function PUT(req, res) {
   const inputs = await req.json();
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.get('id');
+  const role = searchParams.get('role');
+
   try {
     await connectToDB();
-   
-    
     console.log("adding Lecturer to courses",inputs)
 
     const courses = await Courses.findByIdAndUpdate(id, {lecturer:inputs});

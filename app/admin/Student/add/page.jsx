@@ -7,6 +7,10 @@ const AddStudentPage = () => {
 
   return (
     <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>Create Users</h1>
+        <p>Create both staff and student users efficiently</p>
+      </header>
       <InputForm/>
     </div>
   );
