@@ -43,7 +43,7 @@ const AssignProjectForm=({users, uId })=>{
     //     }
     //   };
   
-
+    //Update course to include project supervisor
     const handleSaveData = async (e) => {
         e.preventDefault();
         console.log('submit', selectId);
@@ -149,7 +149,7 @@ const AssignProjectForm=({users, uId })=>{
                 </div> */}
                 <div className={styles.supervisorSelection}>
                     <form  className={styles.form}>
-                        <label htmlFor="supervisor">Change Lecturer:</label>
+                        <label htmlFor="supervisor">Add Lecturer:</label>
                         <select  className={styles.select}id="user" onChange={handleSearch}>
                             <option value="">Select</option>
                             {staffUser?.filter((sta)=>{

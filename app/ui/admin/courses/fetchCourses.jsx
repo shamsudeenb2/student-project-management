@@ -54,8 +54,8 @@ console.log('courses', courses)
           {coursesLoading && <p>Loading  ...</p>}
           {courses?.map((course) => ( 
             <tr key={course.id}>
-              <td>{course.course_name}</td>
               <td>{course.course_code}</td>
+              <td>{course.course_name}</td>
               <td>{course.credit_unit}</td>
               <td>{course.facaulty}</td>
               <td>{course.department}</td>

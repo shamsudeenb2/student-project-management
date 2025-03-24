@@ -8,6 +8,22 @@
 }
 
 /* Header Styling */
+/* .header {
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+} */
+
+.header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
 .header {
   background: #003366;
   color: white;
@@ -18,12 +34,35 @@
   
   .form {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin-top: 70px;
     
   }
-  
+  .courseSelect{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+  }
+  .courseName{
+
+  }
+
+  .courseSelect .select, .courseName{
+    padding: 10px;
+    background-color: var(--bg);
+    color: rgb(50, 49, 49);
+    border: 2px solid var(--textSoft);
+    border-radius: 5px;
+    width: 20%;
+    margin-right: 10px;
+  }
+
   .form input,
   .form textarea,
   .form select {
@@ -32,6 +71,7 @@
     color: rgb(50, 49, 49);
     border: 2px solid var(--textSoft);
     border-radius: 5px;
+
   }
   
   .form input, .form select {
@@ -45,10 +85,12 @@
   
   .form button{
     width: 10%;
-    /* padding: 12px; */
+    padding: 12px;
+    margin-top: 15px;
     background-color: var(--bgSoft);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
+

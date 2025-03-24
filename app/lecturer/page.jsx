@@ -9,8 +9,8 @@ const LecturerDashboard= async () =>{
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Lecturer Dashboard</h1>
-        <p>Manage your courses and student supervision efficiently.</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>Lecturer Dashboard.</p>
       </header>
       <main className={styles.main}>
         <div className={styles.cardContainer}>

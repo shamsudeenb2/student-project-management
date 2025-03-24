@@ -14,8 +14,11 @@ export async function GET(req, res) {
   try {
     await connectToDB();
     
-      const courses  = await Courses.find({lecturer:id})
-      .lean();
+      const courses  = await Courses.find({ $or: [
+        { lecturer: id },
+        { project_supervisors: {$ne:[]} }
+      ] }) 
+      .lean();//or id is in project_supervisors:
 
     if (!courses ) {
       return NextResponse.json({ error: 'user not found' }, { status: 404 })
@@ -23,7 +26,7 @@ export async function GET(req, res) {
      // Count students enrolled in each course
      const courseData = await Promise.all(
         courses.map(async (course) => {
-          const studentCount = await User.countDocuments({ courses: course._id }); // Count students
+          const studentCount = await User.countDocuments({ courses: course._id }); // Count students, it should be course._id is in courses
           return {
             id: course._id,
             course_name: course.course_name,

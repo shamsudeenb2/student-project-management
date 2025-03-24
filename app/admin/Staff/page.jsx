@@ -9,8 +9,8 @@ const CoursePage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>View Courses</h1>
-        <p>View and Manage all the list of courses</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>View and Manage courses</p>
       </header>
       <div className={styles.top}>
         <Search placeholder="Search for a user..." />
@@ -19,8 +19,8 @@ const CoursePage = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>Course Title</td>
             <td>Course Code</td>
+            <td>Course Title</td>
             <td>Cridit unit</td>
             <td>Facaulty</td>
             <td>Department</td>

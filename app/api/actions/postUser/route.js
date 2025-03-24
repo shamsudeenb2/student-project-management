@@ -1,4 +1,4 @@
-import {  User } from "@/app/utils/models";
+import {  Courses, User } from "@/app/utils/models";
 import bcrypt from "bcrypt";
 import { connectToDB } from "@/app/utils/databaseCon";
 import { NextResponse } from 'next/server'
@@ -79,20 +79,32 @@ export async function GET(req, res) {
   const role = searchParams.get('role');
 
   await connectToDB();
-  console.log("server fetch user role", role)
+  
   try {
-    const users = await User.find({role:role});
+    if(role === "student"){
+      console.log("server fetch user role", role)
+      const users = await User.find({role:role});
 
-    if (!users) {
-      return NextResponse.json({ error: 'user not found' }, { status: 404 })
+      if (!users) {
+        return NextResponse.json({ error: 'user not found' }, { status: 404 })
+      }
+  
+      return NextResponse.json({ users }, { status: 200 })
+    }else{
+      const users = await User.find({role:role});
+
+      if (!users) {
+        return NextResponse.json({ error: 'user not found' }, { status: 404 })
+      }
+  
+      return NextResponse.json({ users }, { status: 200 })
     }
-
-    return NextResponse.json({ users }, { status: 200 })
   } catch (error) {
     return NextResponse.json({ error: 'server error' }, { status: 500 })
   }
 }
 
+//Assign a supervisor to student
 export async function PUT(req, res) {
   
   const inputs = await req.json();

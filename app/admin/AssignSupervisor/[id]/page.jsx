@@ -11,7 +11,7 @@ const SingleRoutePage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Assign a supervisor</h1>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
         <p>Assign project supervisors to student</p>
       </header>
       {/* <div className={styles.infoContainer}> */}

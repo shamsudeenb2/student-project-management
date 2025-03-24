@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import styles from "@/app/ui/navbar/navbar.module.css"
 import { usePathname } from 'next/navigation'
+
 import Image from "next/image";
 import Notification from "./chat/Notifications"
 
@@ -18,25 +19,25 @@ function AuthButton(){
         return(
             <div className={styles.nav} >
               <div className={styles.navNameLinks}>
-                 <Link href={`/${pathname.split('/').splice(1,1).pop()}`}><div>Home</div></Link>
+                 <Link href={`/${pathname.split('/').splice(1,1).pop()}`}><div >Home</div></Link>
               <>
               {session?.user?.role==="staff"?(
                 <>
-                   <Link href="/lecturer/view-courses"><div>Courses</div></Link>
-                   <Link href="/lecturer/view-student"><div>Students</div></Link>
-                   <Link href={`/students/${session?.user?.id}/chat`}><div>Chats</div></Link>
-                   <Link href={`/students/${session?.user?.id}/files`}><div>Files</div></Link>
+                   <Link href="/lecturer/view-courses" className={pathname === "/lecturer/view-courses" && styles.active}><p >Courses</p></Link>
+                   <Link href="/lecturer/view-student"className={pathname === "/lecturer/view-student" && styles.active}><p >Students</p></Link>
+                   <Link href={`/students/${session?.user?.id}/chat`} className={pathname === `/students/${session?.user?.id}/chat` && styles.active}><p>Chats</p></Link>
+                   <Link href={`/students/${session?.user?.id}/files`} className={pathname === `/students/${session?.user?.id}/files`&& styles.active}><p >Files</p></Link>
                 </>
                ):session?.user?.role ==="student"?(
                 <>
-                   <Link href="/students/courses"><div>courses</div></Link>
-                   <Link href={`/students/${session?.user?.id}/chat`}><div>Chats</div></Link>
-                   <Link href={`/students/${session?.user?.id}/files`}><div>Files</div></Link>
+                   <Link href="/students/add" className={pathname === "/students/add" && styles.active}><p >courses</p></Link>
+                   <Link href={`/students/${session?.user?.id}/chat`} className={pathname === `/students/${session?.user?.id}/chat` && styles.active}><p >Chats</p></Link>
+                   <Link href={`/students/${session?.user?.id}/files`} className={pathname === `/students/${session?.user?.id}/files` && styles.active}><p >Files</p></Link>
                 </>
               ):(<>
-                  <Link href="/admin/lecturer"><div>Lecturers</div></Link>
-                  <Link href="/admin/Student"><div>Students</div></Link>
-                  <Link href="/admin/Staff"><div>Courses</div></Link>
+                  <Link href="/admin/lecturer" className={pathname === "/admin/lecturer" && styles.active}><p >Lecturers</p></Link>
+                  <Link href="/admin/Student" className={pathname === "/admin/Student" && styles.active}><p >Students</p></Link>
+                  <Link href="/admin/Staff" className={pathname === "/admin/Staff"&& styles.active}><p >Courses</p></Link>
                   
                 </>)}
                </>

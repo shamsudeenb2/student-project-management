@@ -14,7 +14,7 @@ export async function GET(req, res) {
   try {
     await connectToDB();
     
-    const users = await User.find({supervisor:id})
+    const users = await User.find({supervisor:id}) // return project students
       
 
     if (!users ) {

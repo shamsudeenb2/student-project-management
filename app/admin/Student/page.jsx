@@ -38,8 +38,8 @@ const StudentPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>View Students</h1>
-        <p>View and Manage all the list of students</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>View and Manage Students</p>
       </header>
       <div className={styles.top}>
         <Search placeholder="Search for a user..." />

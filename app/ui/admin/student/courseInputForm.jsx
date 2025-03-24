@@ -22,7 +22,8 @@ const  CourseInputForm=()=>{
             ...prevState,
             [name]: value,
           }));
-        };  
+        };
+        
           const handleSaveData = async (e) => {
             e.preventDefault();
             console.log('submit', inputs);
@@ -35,7 +36,8 @@ const  CourseInputForm=()=>{
             });
           
             if (response.ok) {
-              alert("Data saved successfully!");
+              const data = await response.json();
+              alert(data.message);
               setInputs({
                 course_name:"",
                 course_code:"",
@@ -55,19 +57,19 @@ const  CourseInputForm=()=>{
         <div className={styles.formCouse}>
           <InputField
            type="text"
-           label="Course name"
-           name="course_name"
-           handleOnChange={handleOnChange}
-           required
-           value={inputs.course_name}
-          />
-          <InputField
-           type="text"
            label="Course code"
            name="course_code"
            handleOnChange={handleOnChange}
            required
            value={inputs.course_code}
+          />
+            <InputField
+           type="text"
+           label="Course name"
+           name="course_name"
+           handleOnChange={handleOnChange}
+           required
+           value={inputs.course_name}
           />
           <InputField
            label="Credit unit"

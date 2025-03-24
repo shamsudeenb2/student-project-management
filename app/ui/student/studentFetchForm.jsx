@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 import { ToastContainer, toast } from 'react-toastify';
 import FadeLoader from "react-spinners/FadeLoader";
 
-const FetchStudent = ({ searchParams }) => {
+const FetchStudent = ({ searchParams, updateCourse, setUpdateCourse }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const {data: session} = useSession()
@@ -21,13 +21,14 @@ const FetchStudent = ({ searchParams }) => {
 
   const deleteCourse = async (id) => {
     try {
-      const response = await fetch(`/api/actions/postUser?id=${id}`, {
+      const response = await fetch(`/api/actions/registerCourse?id=${id}&userId=${session?.user?.id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         console.log('deleteSupabaseItem - ResponseOK - data deleted',);
-        router.push("/admin/Student");
+        setUpdateCourse(!updateCourse)
+        // router.push("/admin/Student");
       } else {
         // Handle the error
         console.log('deleteSupabaseItem - Response not OK');
@@ -56,53 +57,63 @@ const FetchStudent = ({ searchParams }) => {
         
     }
     getcourses()
-   },[])
+   },[updateCourse])
 
   return (
         <>
-        <div className={styles.top}>
+        {/* <div className={styles.top}>
         <Search placeholder={'search...'}/>
-        </div>
+        </div> */}
         <main className={styles.main}>
-        <table className={styles.table}>
-        <thead>
-          <tr>
-            <td>course name</td>
-            <td>course name</td>
-            <td>credit unit</td>
-            <td>Facaulty</td>
-            <td>Department</td>
-           
-          </tr>
-        </thead>
-        <tbody>
-        {coursesLoading && <tr>Loading  ...</tr>}
-        {courses?.map((course) => ( 
-            <tr key={course.id}>
-              <td>{course.course_name}</td>
-              <td>{course.course_code}</td>
-              <td>{course.credit_unit}</td>
-              <td>{course.facaulty}</td>
-              <td>{course.department}</td>
-              <td>
-                <div className={styles.buttons}>
-                  {/* <Link href={`//${course._id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>
-                      Edit Course
-                    </button>
-                  </Link> */}
-                  {/* <form action="">
-                    <input type="hidden" name="id" />
-                    <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteUser(course._id)}>
-                      Delete 
-                    </button>
-                  </form> */}
-                 </div>
-                </td>
-              </tr>
-             ))}
-            </tbody>
-         </table>
+          {courses &&(
+             <table className={styles.table}>
+             <thead>
+               <tr>
+                 <td>course code</td>
+                 <td>course title</td>
+                 <td>credit unit</td>
+                 <td>Facaulty</td>
+                 <td>Department</td>
+                
+               </tr>
+             </thead>
+             <tbody>
+             {coursesLoading && <tr>Loading  ...</tr>}
+             {courses?.map((course) => ( 
+                 <tr key={course.id}>
+                   <td>{course.course_code}</td>
+                   <td>{course.course_name}</td>
+                   <td>{course.credit_unit}</td>
+                   <td>{course.facaulty}</td>
+                   <td>{course.department}</td>
+                   <td>
+                     <div className={styles.buttons}>
+                       {/* <Link href={`//${course._id}`}>
+                         <button className={`${styles.button} ${styles.view}`}>
+                           Edit Course
+                         </button>
+                       </Link> */}
+                       {/* <form action="">
+                         <input type="hidden" name="id" />
+                         <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteUser(course._id)}>
+                           Delete 
+                         </button>
+                       </form> */}
+                      </div>
+                     </td>
+                     <td>
+                     <div className={styles.buttons}>
+                     <input type="hidden" name="id" />
+                        <button className={`${styles.button} ${styles.delete}`} onClick={()=>deleteCourse(course._id)}>
+                          Remove
+                        </button>
+                     </div>
+                     </td>
+                   </tr>
+                  ))}
+                 </tbody>
+              </table>
+          )}
         </main>
      
        </>

@@ -19,8 +19,9 @@ export default function Header() {
       <header className={styles.hero} style={{ backgroundImage:`url(${images[currentImage]})` }}>
         <div className={styles.overlay}></div>
         <div className={styles.heroContent}>
-          <h1>Welcome to Supervisor Project Management System</h1>
-          <p>Shaping the future of aerospace and technology</p>
+          <h1>Welcome to Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+          <p>(Air Force institute of technology)</p>
+          {/* <p>(Shaping the future of aerospace and technology)</p> */}
           <a href="/login" className={styles.ctaButton}>
             Explore Programs
           </a>

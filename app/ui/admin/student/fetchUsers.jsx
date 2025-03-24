@@ -22,6 +22,7 @@ const FetchUser = ({ searchParams, role } ) => {
   const [usersLoading, setLoadingUsers] = useState(false)
   const [usersError, setUsersError] = useState(null)
   console.log("fetch user role", role)
+  
   const deleteUser = async (id) => {
     try {
       const response = await fetch(`/api/actions/postUser?id=${id}`, {

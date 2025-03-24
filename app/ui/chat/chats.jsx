@@ -82,7 +82,7 @@ import FadeLoader from "react-spinners/FadeLoader";
         }
     },[socketSate,curentChat])
 
-    //get find if a student has chatted with his supervisor
+    //Get if a users has chatted with his supervisor/his student or not
     useEffect(()=>{
         const getUsers = async()=>{
             const checkRole = session?.user?.role ==="staff"?"student":"staff"
@@ -90,7 +90,7 @@ import FadeLoader from "react-spinners/FadeLoader";
             if(response.ok){
                 const data = await response.json();
                 
-               const pChats = data?.users?.filter((u)=>{  //
+               const pChats = data?.users?.filter((u)=>{
                 let isChatCreated =false
                 
                 if(session?.user?.id === u._id) return false;
@@ -107,7 +107,7 @@ import FadeLoader from "react-spinners/FadeLoader";
                 }else if(session?.user?.role ==="staff"){
                     console.log("is user a staff", session?.user.id, u.supervisor)
                     if(session?.user?.id === u.supervisor){
-                        if(userChats){
+                        if(userChats){ //check if user 
                             isChatCreated=userChats?.some((chat)=>{
                                 return chat.members[0] === u._id || chat.members[1] ===u._id
                             })
@@ -119,6 +119,7 @@ import FadeLoader from "react-spinners/FadeLoader";
                    
                });
                
+               
                setPotentialChats(pChats)
             }
             
@@ -126,7 +127,7 @@ import FadeLoader from "react-spinners/FadeLoader";
         getUsers()
     },[userChats])
 
-
+    //Get Login user chat
     useEffect(()=>{
         const getChats= async()=>{
             setIsUserChatsLoading(true)

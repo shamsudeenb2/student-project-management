@@ -11,10 +11,11 @@ export async function GET(req, {params}) {
     const role = searchParams.get('role');
   
   
-    console.log("list of chat with lectuerId,role, studentId",lectuerId,role, studentId)
+    
   try {
     await connectToDB();
     if(role==="staff"){
+      console.log("list of chat with lectuerId and studentId",lectuerId, studentId)
         const chat = await ChatModel.find({
             members:{$all:[lectuerId,studentId ]}
         });
@@ -22,6 +23,7 @@ export async function GET(req, {params}) {
     
         return NextResponse.json({ chat }, { status: 200 })
     }else{
+      console.log("list of chat with lectuerId",lectuerId)
         const chat = await ChatModel.find({
             members:{$in:[lectuerId]}
         });

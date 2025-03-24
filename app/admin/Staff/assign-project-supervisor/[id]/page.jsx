@@ -12,8 +12,8 @@ const AssignProjectPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Manage Course Lecturer</h1>
-        <p>View and update the lecturer assigned to a course</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>View and update the lecturer's course</p>
       </header>
       <AssignProjectForm uId={id}/>
       {/* <div className={styles.infoContainer}> */}

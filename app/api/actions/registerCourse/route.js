@@ -88,6 +88,7 @@ export async function GET(req, res) {
   }
 }
 
+//student register a course
 export async function PUT(req, res) {
   
   const inputs = await req.json();
@@ -116,7 +117,7 @@ export async function PUT(req, res) {
     // Check if the course is already registered
     const isRegistered = student.courses.includes(inputs);
 
-    console.log("course registration isRegister",isRegistered)
+    console.log("course registration isRegister",student.courses.length)
     if (isRegistered) {
        return NextResponse.json({ success: true, message: 'Course already registered', course });
     } else {
@@ -129,9 +130,6 @@ export async function PUT(req, res) {
     }
 
     // 
-
-    revalidatePath("/students")
-    return NextResponse.json({ success: true}, { status: 201 });
   } catch (error) {
 
     return NextResponse.json({ error: 'server error' }, { status: 500 })
@@ -141,13 +139,42 @@ export async function PUT(req, res) {
 export async function DELETE(req, res) {
   const searchParams = req.nextUrl.searchParams;
   const id = searchParams.get('id');
+  const userId = searchParams.get('userId');
 
   try {
     await connectToDB();
-    await User.findByIdAndDelete(id);
 
-    revalidatePath("/admin/Student")
-    return NextResponse.json({ success: true}, { status: 201 });
+    const student = await User.findById(userId);
+    console.log("Removing course for this student",student)
+    if (!student) {
+       return NextResponse.json({ success: false, message: 'Invalid User Id' });
+    }
+
+    // Check if the course exists
+    const course = await Courses.findById(id);
+    console.log("revoming course with id", course)
+    if (!course) {
+       return NextResponse.json({ success: false, message: 'Invalid Course id' });
+    }
+
+    // Check if the course is registered
+    const isRegistered = student.courses.includes(id);
+
+    console.log("removing course registered",student.courses.length)
+    if (isRegistered) {
+      await User.updateOne({ _id:userId },{$pull: { courses: id } });
+      
+
+      revalidatePath("/admin/Student")
+      return NextResponse.json({ success: true}, { status: 201 });
+      
+    } else {
+      // Update the student's course list
+      // student.courses.push(courseId);
+      // await student.save();
+      return NextResponse.json({ success: true, message: 'Course is not registered', course });
+    }
+
   } catch (error) {
     return NextResponse.json({ error: 'server error' }, { status: 500 })
   }

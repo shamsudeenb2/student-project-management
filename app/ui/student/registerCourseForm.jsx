@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useSession } from "next-auth/react";
 import { ToastContainer, toast } from 'react-toastify';
 import FadeLoader from "react-spinners/FadeLoader";
+import FetchStudent from "@/app/ui/student/studentFetchForm";
 
 
 const  CourseInputForm=()=>{
@@ -14,6 +15,8 @@ const  CourseInputForm=()=>{
     const [coursesLoading, setLoadingCourses] = useState(false)
     const [coursesError, setCoursesError] = useState(null)
     const [selectId, setSelectId] = useState("");
+    const [courseName, setCourseName] = useState("");
+    const [updateCourse, setUpdateCourse] = useState(false);
 
     const handleSearch = (e) => {
       
@@ -41,8 +44,9 @@ const  CourseInputForm=()=>{
               
               console.log("course registration",data)
               alert(data.message);
+              setUpdateCourse(!updateCourse)
               setSelectId("");
-              router.push("/students");
+              // router.push("/students");
             } else {
               alert("Something went wrong!");
             }
@@ -63,23 +67,36 @@ const  CourseInputForm=()=>{
             getcourses()
         },[])
 
-        console.log('courses show', session?.user?.id)
-        // const coursesList = JSON.parse(courses.courses)
+        useEffect(()=>{
+          const filtered = courses?.courses?.filter((truck)=> {
+            if(truck._id===selectId){
+              return truck.course_name
+            }
+          })
+          setCourseName(filtered?.[0]?.course_name)
+        },[selectId])
+
+        console.log("course name",courseName)
       
     return(
         <div>
-            <form  className={styles.form}>
-            {coursesLoading && <tr>Loading  ...</tr>}
-                <select  className={styles.select} id="course" onChange={handleSearch}>
-                    <option value="">Select</option>
-                    {courses?.courses?.map((course) => {
-                        return (
-                          <option key={course._id} value={course._id}>{course.course_name}</option>
-                        );
-                        })}
-                </select>
-                <button onClick={handleSaveData}>Register</button>
+            <form onSubmit={handleSaveData}  className={styles.form}>
+              {coursesLoading && <p>Loading  ...</p>}
+                 <div className={styles.courseSelect}>
+                  <select  className={styles.select} id="course" onChange={handleSearch}>
+                      <option value="">Select</option>
+                      {courses?.courses?.map((course) => {
+                          return (
+                            <option key={course._id} value={course._id}>{course.course_code}</option>
+                          );
+                          })}
+                  </select>
+                  <p className={styles.courseName}> {courseName}</p>
+                  
+                 </div>
+                <button>Register</button>
             </form>
+            <FetchStudent updateCourse={updateCourse} setUpdateCourse={setUpdateCourse}/>
       </div>
     )
 }

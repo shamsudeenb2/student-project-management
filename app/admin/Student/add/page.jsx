@@ -8,8 +8,8 @@ const AddStudentPage = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Create Users</h1>
-        <p>Create both staff and student users efficiently</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>Create both staff and student</p>
       </header>
       <InputForm/>
     </div>

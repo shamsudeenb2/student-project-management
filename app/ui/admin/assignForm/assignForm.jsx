@@ -15,8 +15,30 @@ const AssignForm=({users, uId})=>{
     const [staffUser, setStaffUser] = useState([])
     const [staffUserLoading, setLoadingstaffUser] = useState(false)
     const [staffUserError, setStaffUserError] = useState(null)
+    const [isProject, setIsProject] = useState(false)
+
+
+    //Check if student has register a project as course
+    useEffect(()=>{
+      const getStudeentUser= async()=>{
+          setLoadingstaffUser(true)
+          setStaffUserError(null)
+        
+          const response = await fetch(`/api/courses/project?id=${uId}`)
+              setLoadingstaffUser(false)
+          if(response.error){
+              return setStaffUserError(response.error)
+          }
+          const data = await response.json();
+          console.log("isProject register",data)
+          setIsProject(data.isProject)
+      }
+      getStudeentUser()
+  },[])
   
 
+
+    //Assign Supervisor to a student
     const handleSaveData = async (e) => {
         e.preventDefault();
         console.log('submit', selectId);
@@ -51,28 +73,38 @@ const AssignForm=({users, uId})=>{
     };
     
 
+    //Get list of Lecturer that are a assign to supervise project
     useEffect(()=>{
       const getstaffUser= async()=>{
           setLoadingstaffUser(true)
           setStaffUserError(null)
         
-          const response = await fetch(`/api/charts/userChat?id=staff`)
+          const response = await fetch(`/api/courses/project/supervisors?id=staff`)
               setLoadingstaffUser(false)
           if(response.error){
               return setStaffUserError(response.error)
           }
           const data = await response.json();
-          setStaffUser(data.users)
+          console.log("project supervisors",data.users.project_supervisors
+          )
+          setStaffUser(data?.users?.project_supervisors
+          )
       }
       getstaffUser()
   },[])
     
-  console.log("users staff name then", staffUser)
+
+  // if(!isProject){
+  //   alert("Student has not register Project")
+  //   router.push("/admin/Student");
+  // }
     return(
+     <>
+       {isProject?(
         <form  className={styles.form}>
         <select  className={styles.select}id="user" onChange={handleSearch}>
         <option value="">Select</option>
-        {staffUser.filter((sta)=>{
+        {staffUser?.filter((sta)=>{
           return sta.role==="staff"
         }).map((state) => {
           return (
@@ -82,6 +114,8 @@ const AssignForm=({users, uId})=>{
            </select>
           <button onClick={handleSaveData}>Assign</button>
         </form>
+      ):<p>The Student have not register for project</p>}
+     </>
     )
 }
 

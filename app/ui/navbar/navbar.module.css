@@ -81,6 +81,16 @@
     width: 20%;
     color: var(--bgSoft);
     padding: 10px;
+    border-radius: 9px;
+    
+  }
+
+  .active{
+    background-color: #6492c6;
+    width: 20%;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   .navName{

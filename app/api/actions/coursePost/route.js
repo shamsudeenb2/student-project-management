@@ -17,6 +17,11 @@ export async function POST(req, res) {
 
   try {
     await connectToDB();
+    const courseName = await Courses.findOne({course_name:course_name})
+
+    if(courseName){
+      return NextResponse.json({ success: true, message:"The course is already created"}, { status: 201 });
+    }
     // Search for the item
     const newCourse = new Courses({
       course_name,
@@ -30,7 +35,7 @@ export async function POST(req, res) {
 
     console.log("user input type is:",courses)
 
-    return NextResponse.json({ success: true, data: courses }, { status: 201 });
+    return NextResponse.json({ success: true, message: "Course created successefully" }, { status: 201 });
     // if (!courses) {
     //   console.log("name of course", courses)
     //   return NextResponse.json({ error: 'course not created' }, { status: 404 })

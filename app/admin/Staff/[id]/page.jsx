@@ -12,8 +12,8 @@ const SingleStudentPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Assign Lecturer</h1>
-        <p>Assign Lecturer to a courses</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>Assign Lecturer to a course</p>
       </header>
       <AddLecturer uId={id}/>
       {/* <div className={styles.infoContainer}> */}

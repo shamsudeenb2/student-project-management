@@ -8,7 +8,7 @@ export default function ViewCoursesPage() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>My Courses</h1>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
         <p>Here is a list of courses you are lecturing.</p>
       </header>
       <main className={styles.main}>

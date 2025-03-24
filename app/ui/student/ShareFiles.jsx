@@ -28,6 +28,7 @@ export default function FileSharing() {
     const [projectStudentLoading, setLoadingprojectStudent] = useState(false)
     const [projectStudentError, setprojectStudentError] = useState(null)
     const [selectId, setSelectId] = useState("1");
+    const [updateFile, setupdateFile] = useState("1");
 
 useEffect(()=>{
   const getChats= async()=>{
@@ -40,8 +41,8 @@ useEffect(()=>{
       }
       if(response.ok){
           const data = await response.json();
-          console.log("user chart", data.chat)
-          setUserChats(data.chat)
+          console.log("user chart", data?.chat[0])
+          setUserChats(data?.chat[0])
       }
   }
 
@@ -52,7 +53,7 @@ useEffect(()=>{
   const getfilesUrl= async()=>{
       setLoadingFilesUrl(true)
       setFilesUrlError(null)
-          const response = await fetch(`/api/upload?id=${userChats?._id}`)
+          const response = await fetch(`/api/upload?id=${userChats?._id}`) //
           setLoadingFilesUrl(false)
 
           if(response.error){
@@ -61,9 +62,10 @@ useEffect(()=>{
           const data = await response.json();
           console.log("file urls", data)
           setFilesUrl(data.fileUrls)
+          
   }
   getfilesUrl()
-},[userChats])
+},[userChats,updateFile])
 
 useEffect(()=>{
   const getprojectStudent= async()=>{
@@ -126,12 +128,12 @@ const handleSearch = (e) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>File Sharing</h1>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
         <p>Send, receive, and manage your files efficiently.</p>
       </header>
        <main className={styles.main}>
           <div className={styles.formDiv}>
-           <UploadFile chatId={userChats?._id} senderId={session?.user?.id} />
+           <UploadFile chatId={userChats?._id} senderId={session?.user?.id} setupdateFile={setupdateFile}/>
           </div>
           <div className={styles.selectStudent}>
             {session?.user?.role==="staff"?(

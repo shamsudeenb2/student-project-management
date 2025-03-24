@@ -7,6 +7,9 @@ import Image from 'next/image';
 export default function Login() {
   return (
     <div className={styles.container}>
+      <div className={styles.containerHeader}>
+        <h2>Integrative Communication Platform for supervisor and Supervisee Interaction</h2>
+      </div>
       <div className={styles.card}>
         <div className={styles.loginHead}>
         <Image src={'/afit.png' } width={90} height={90}/>

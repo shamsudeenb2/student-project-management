@@ -2,11 +2,23 @@
 .container {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
     background-color: var(--bg);
   }
+
+  .containerHeader{
+    margin: 20px;
+    width: 75%;
+
+  }
   
+  .containerHeader h2{
+    text-align: center;
+    color:var(--bgSoft) ;
+    font-family: 'Courier New', Courier, monospace;
+  }
   .card {
     background-color: #f5f5f5;
     padding: 2rem;

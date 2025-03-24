@@ -37,8 +37,8 @@ const AdminHome = async () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Admin Dashboard</h1>
-        <p>Manage users and courses efficiently</p>
+        <h1>Integrative Communication Platform for supervisor and Supervisee Interaction</h1>
+        <p>Admin Dashboard</p>
       </header>
       <main className={styles.main}>
         <div className={styles.cardContainer}>

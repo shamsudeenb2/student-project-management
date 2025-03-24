@@ -6,7 +6,8 @@ import { getSession } from "@/app/configuration/auth"
 
 const StudentDashboard= async()=>{
   const  session = await getSession()
- 
+  
+  console.log("session data", session)
   return (
     <div className={styles.container}>
       <header className={styles.header}>
